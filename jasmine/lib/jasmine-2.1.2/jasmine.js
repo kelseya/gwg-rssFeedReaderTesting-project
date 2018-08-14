@@ -88,6 +88,7 @@ getJasmineRequireObj().requireMatchers = function(jRequire, j$) {
       'toMatch',
       'toThrow',
       'toThrowError'
+
     ],
     matchers = {};
 
@@ -954,7 +955,7 @@ getJasmineRequireObj().Any = function() {
     if (this.expectedObject == Object) {
       return typeof other == 'object';
     }
-    
+
     if (this.expectedObject == Boolean) {
       return typeof other == 'boolean';
     }
