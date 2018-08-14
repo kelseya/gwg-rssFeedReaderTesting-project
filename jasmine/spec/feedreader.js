@@ -31,7 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('each URL is defined', function() {
+         it('each URL is defined & not empty', function() {
             for(i=0; i<allFeeds.length; i++) {
               expect(allFeeds[i].url).toBeDefined();
               expect(allFeeds[i].url.length).not.toBe(0);
@@ -42,6 +42,12 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('each object has a name & is not empty', function() {
+           for(i=0; i<allFeeds.length; i++) {
+             expect(allFeeds[i].name).toBeDefined();
+             expect(allFeeds[i].name.length).not.toBe(0);
+           }
+         })
 
     });
 
