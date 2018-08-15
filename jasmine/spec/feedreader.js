@@ -77,8 +77,8 @@ $(function() {
               expect(body.classList).not.toContain('menu-hidden');
             }
 
-          })
-    })
+          });
+    });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function(){
 
@@ -97,9 +97,27 @@ $(function() {
          });
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function(){
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         const feed = document.querySelector('.feed');
+         const firstFeed = [];
+         const secondFeed = [];
+         beforeEach(function(done){
+           loadFeed(0);
+           Array.from(feed.children).forEach(function(entry){
+             firstFeed.push(entry.innerText);
+           })
+           loadFeed(1, done);
+           Array.from(feed.children).forEach(function(entry){
+             secondFeed.push(entry.innerText);
+           })
+         });
+         it('running loadFeed multiple times produces different feeds', function(){
+           expect(firstFeed != secondFeed).toBe(true);
+         })
+    })
 }());
